@@ -46,9 +46,5 @@ public class InitializeFrame extends ButtonActions implements InitFrame {
 		grid.setBackground(Color.WHITE);
 		grid.setBounds(10, 52, 645, 395);
 		frame.getContentPane().add(grid);
-
-		errorLabel = new JLabel();
-		errorLabel.setBounds(20, 60, 200, 30);
-		errorLabel.setForeground(Color.RED);
 	}
 }
