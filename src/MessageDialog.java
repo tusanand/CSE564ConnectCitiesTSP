@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.util.Timer;
 
 import javax.swing.JDialog;
