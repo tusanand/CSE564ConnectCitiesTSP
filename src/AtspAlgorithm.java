@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * This class is used to run the algorithm for asymmetric data
+ *
+ */
 public class AtspAlgorithm implements AtspAlgorithmInterface {
 	private MessageDialogInterface msgDialog;
 	private boolean isRunning = false;
@@ -67,6 +71,7 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	
 	/**
 	 * This method processes the data and starts the algorithm
+	 * @param matrix
 	 */
 	public void startAlgorithm(List<Integer> matrix) {
 		List<Integer> copyMatrix = new ArrayList<Integer>(matrix);

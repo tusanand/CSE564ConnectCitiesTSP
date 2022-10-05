@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * This class is used to run the algorithm for symmetric data
+ *
+ */
 public class TSPAlgorithm implements TSPAlgorithmInterface {
 	private List<Coordinates> tempCoordinates;
 	private double totalDistanceTravelled;

@@ -1,5 +1,10 @@
 import java.awt.EventQueue;
 
+/**
+ * @author Tushar Anand
+ * This class launches the application
+ *
+ */
 public class ConnectingTheDotsMain {
 
 	/**

@@ -6,6 +6,10 @@ import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * @author Tushar Anand
+ * This class helps load file data into the system
+ */
 public class FileLoader implements FileLoaderInterface {
 	
 	

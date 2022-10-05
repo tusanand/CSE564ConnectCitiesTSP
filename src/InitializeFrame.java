@@ -5,6 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * This class initializes the frame and all of its components
+ *
+ */
 public class InitializeFrame extends ButtonActions implements InitFrameInterface {
 	
 	public InitializeFrame() {

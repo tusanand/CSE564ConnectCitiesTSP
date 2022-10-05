@@ -1,5 +1,9 @@
 import java.io.Serializable;
 
+/**
+ * @author Tushar Anand
+ * This class helps store the coordinate value
+ */
 public class Coordinates implements Serializable {
 	private int index;
 	private double x;
