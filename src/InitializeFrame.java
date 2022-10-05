@@ -22,8 +22,14 @@ public class InitializeFrame extends ButtonActions implements InitFrameInterface
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		btnLoadAssymetric = new JButton("Select Asymmetric Data");
+		btnLoadAssymetric.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLoadAssymetric.setBounds(555, 10, 210, 32);
+		btnLoadAssymetric.addActionListener(this);
+		frame.getContentPane().add(btnLoadAssymetric);
 
-		btnLoad = new JButton("Select Country Data");
+		btnLoad = new JButton("Select Symmetric Data");
 		btnLoad.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLoad.setBounds(775, 10, 200, 32);
 		btnLoad.addActionListener(this);
@@ -31,7 +37,7 @@ public class InitializeFrame extends ButtonActions implements InitFrameInterface
 
 		btnClear = new JButton("Clear");
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnClear.setBounds(650, 10, 100, 32);
+		btnClear.setBounds(446, 10, 100, 32);
 		btnClear.addActionListener(this);
 		frame.getContentPane().add(btnClear);
 

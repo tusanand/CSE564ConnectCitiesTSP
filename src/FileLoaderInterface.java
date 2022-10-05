@@ -2,6 +2,8 @@ import java.util.List;
 
 public interface FileLoaderInterface {
 	
-	public List<Coordinates> loadFile();
+	public List<Coordinates> loadSymmetricData();
+	
+	public List<Integer> loadASymmetricData();
 	
 }
