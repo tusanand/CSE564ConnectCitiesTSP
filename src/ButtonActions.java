@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * This class invokes all the button actions
+ *
+ */
 public class ButtonActions implements ActionListener {
 	protected JFrame frame;
 	protected JButton btnLoad;
@@ -40,6 +44,10 @@ public class ButtonActions implements ActionListener {
 		this.fileLoader = new FileLoader();
 	}
 	
+	/**
+	 * This method finds the minimum and maximum value of the original X and Y coordinates for symmetric data
+	 * @param dotLocations
+	 */
 	private void findMinMaxActualCoordinate(List<Coordinates> dotLocations) {
 		for(Coordinates coordinate:  dotLocations) {
 			this.minXY[0] = Math.min(this.minXY[0], coordinate.getX());
@@ -50,9 +58,9 @@ public class ButtonActions implements ActionListener {
 	}
 
 	/**
-	 * This method clears dots from the screen
+	 * This method clears the data
 	 */
-	private void clearScreen() {
+	private void clearData() {
 		grid.repaint();
 		this.coordinates.clear();
 		this.asymmetricData.clear();
@@ -66,9 +74,9 @@ public class ButtonActions implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.btnClear) {
-			this.clearScreen();
+			this.clearData();
 		} else if (e.getSource() == this.btnLoad) {
-			this.clearScreen();
+			this.clearData();
 			this.originalCoordinates = this.fileLoader.loadSymmetricData();
 			if(this.originalCoordinates != null) {
 				this.hasBeenRun = false;
@@ -80,7 +88,7 @@ public class ButtonActions implements ActionListener {
 				this.tspAlgorithm = new TSPAlgorithm(this.msgDialog, this.drawDots);
 			}
 		} else if (e.getSource() == this.btnLoadAssymetric) {
-			this.clearScreen();
+			this.clearData();
 			List<Integer> data = this.fileLoader.loadASymmetricData();
 			if(data != null) {
 				this.asymmetricData = data;

@@ -4,6 +4,11 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
+/**
+ * @author Tushar Anand
+ * This class helps display messages on the screen
+ *
+ */
 public class MessageDialog implements MessageDialogInterface {
 	private JDialog messageDialog;
 	private JFrame frame;

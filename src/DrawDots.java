@@ -8,6 +8,11 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+/**
+ * @author Tushar Anand
+ * This class helps mark pointers on the screen based on the coordinates
+ *
+ */
 public class DrawDots implements DrawDotsInterface {
 	private int circleDiameter = 4;
 	private List<Coordinates> coordinates = new ArrayList<Coordinates>();
