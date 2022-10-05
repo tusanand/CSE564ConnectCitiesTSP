@@ -63,7 +63,7 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 		}
 		this.msgDialog.showMessage(new String[]{
 				"Total distance travelled: " + this.totalDistanceTravelled, 
-				"List of Cities visited in Sequence:", 
+				"List of cities visited in sequence:", 
 				String.valueOf(this.visitedCities)}, false);
 	}
 	

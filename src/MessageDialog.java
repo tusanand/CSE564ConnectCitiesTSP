@@ -1,8 +1,10 @@
+import java.awt.BorderLayout;
 import java.util.Timer;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
 public class MessageDialog implements MessageDialogInterface {
@@ -23,18 +25,18 @@ public class MessageDialog implements MessageDialogInterface {
 		if (this.messageDialog != null) {
 			this.messageDialog.dispose();
 		}
-		this.messageDialog.setSize(350, 200);
-		this.messageDialog.setResizable(false);
+		this.messageDialog.setSize(500, 200);
+		this.messageDialog.setResizable(true);
 		this.messageDialog.setVisible(true);
 		this.messageDialog.setLocationRelativeTo(this.frame);
 		
-		int y = 20;
-		for(String message: messages) {
-			JLabel messageLabel = new JLabel("<html>"+ message +"</html>", SwingConstants.CENTER);
-			messageLabel.setBounds(20, y, 150, 50);
-			y+=20;
-			this.messageDialog.add(messageLabel);
+		String message = "";
+		for(String msg: messages) {
+			message = message + msg + "<br/>";
 		}
+		JLabel messageLabel = new JLabel("<html>"+ message +"</html>", SwingConstants.CENTER);
+		JScrollPane scroll = new JScrollPane(messageLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		this.messageDialog.add(scroll);
 		if(timer.length == 0) {
 			this.startTimer(3000, messageDialog);
 		}
