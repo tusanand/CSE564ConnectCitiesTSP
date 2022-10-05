@@ -15,31 +15,6 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	}
 	
 	/**
-	 * This method processes the data and starts the algorithm
-	 */
-	public void startAlgorithm(List<Integer> matrix) {
-		List<Integer> copyMatrix = new ArrayList<Integer>(matrix);
-		this.totalDistanceTravelled = 0;
-		this.visitedCities.clear();
-		if (copyMatrix.isEmpty()) {
-			this.msgDialog.showMessage(new String[]{"Please load data to run."});
-			return;
-		} else if (this.isRunning) {
-			this.msgDialog.showMessage(new String[]{"The system is already executing the algorithm."});
-			return;
-		}
-		List<List<Integer>> asymmetricDistance = new ArrayList<List<Integer>>();
-		this.dimension = copyMatrix.remove(copyMatrix.size()-1);
-		int index = 0;
-		while(index < copyMatrix.size()) {
-			asymmetricDistance.add(copyMatrix.subList(index, index + this.dimension));
-			index = index + this.dimension;
-		}
-		this.executeAlgorithm(asymmetricDistance);
-		this.isRunning = false;
-	}
-	
-	/**
 	 * This method executes the algorithm
 	 */
 	private void executeAlgorithm(List<List<Integer>> asymmetricDistance) {
@@ -88,6 +63,31 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	 */
 	private int randomSelectIndex(List<Integer> data) {
 		return data.get(new Random().nextInt(data.size()));
+	}
+	
+	/**
+	 * This method processes the data and starts the algorithm
+	 */
+	public void startAlgorithm(List<Integer> matrix) {
+		List<Integer> copyMatrix = new ArrayList<Integer>(matrix);
+		this.totalDistanceTravelled = 0;
+		this.visitedCities.clear();
+		if (copyMatrix.isEmpty()) {
+			this.msgDialog.showMessage(new String[]{"Please load data to run."});
+			return;
+		} else if (this.isRunning) {
+			this.msgDialog.showMessage(new String[]{"The system is already executing the algorithm."});
+			return;
+		}
+		List<List<Integer>> asymmetricDistance = new ArrayList<List<Integer>>();
+		this.dimension = copyMatrix.remove(copyMatrix.size()-1);
+		int index = 0;
+		while(index < copyMatrix.size()) {
+			asymmetricDistance.add(copyMatrix.subList(index, index + this.dimension));
+			index = index + this.dimension;
+		}
+		this.executeAlgorithm(asymmetricDistance);
+		this.isRunning = false;
 	}
 
 }
