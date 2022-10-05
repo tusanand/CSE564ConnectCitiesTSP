@@ -1,5 +1,3 @@
-import java.util.Timer;
-
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
