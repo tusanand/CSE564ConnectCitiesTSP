@@ -42,11 +42,11 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 		this.isRunning = true;
 		this.tempCoordinates = new ArrayList<Coordinates>(coordinates);
 		final Coordinates initialDestination = this.randomSelectDot(this.tempCoordinates);
+		this.visitedCities.add("City"+initialDestination.getIndex());
 		if(!hasBeenRun) {
 			this.drawDots.markDotsVisited(initialDestination);
 		}
 		this.tempCoordinates.removeIf(c -> c.getX() == initialDestination.getX() && c.getY() == initialDestination.getY());
-		System.out.println("City"+initialDestination.getIndex());
 
 		while (this.tempCoordinates.size() > 0) {
 			Coordinates finalDestination = this.randomSelectDot(this.tempCoordinates);
@@ -58,24 +58,23 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 			initialDestination.setX(finalDestination.getX());
 			initialDestination.setY(finalDestination.getY());
 			this.visitedCities.add("City"+initialDestination.getIndex());
-			System.out.println("City"+initialDestination.getIndex());
 			this.tempCoordinates.removeIf(c -> c.getX() == initialDestination.getX() && c.getY() == initialDestination.getY());
 		}
 		this.msgDialog.showMessage(new String[]{
 				"Total distance travelled: " + this.totalDistanceTravelled, 
-				"List of cities visited in sequence:", 
-				String.valueOf(this.visitedCities)}, false);
+				"List of cities visited:", 
+				String.valueOf(this.visitedCities)});
 	}
 	
 	
 	/**
-	 * This method draws input field to take threshold distance measure from user
+	 * This method starts the algorithm
 	 */
 	public boolean startAlgorithm(List<Coordinates> coordinates, boolean hasBeenRun) {
 		this.totalDistanceTravelled = 0;
 		this.visitedCities.clear();
 		if (coordinates.isEmpty()) {
-			this.msgDialog.showMessage(new String[]{"Please load data before clicking on Run."});
+			this.msgDialog.showMessage(new String[]{"Please load data to run."});
 			return false;
 		} else if (this.isRunning) {
 			this.msgDialog.showMessage(new String[]{"The system is already executing the algorithm."});

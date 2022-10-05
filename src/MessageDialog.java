@@ -15,17 +15,25 @@ public class MessageDialog implements MessageDialogInterface {
 	}
 	
 	/**
+	 * This method closes the message dialog
+	 * 
+	 */
+	private void closeMessageDialog() {
+		this.messageDialog.dispose();
+	}
+	
+	/**
 	 * This method shows a pop-up with messages
 	 * 
 	 * @param message
 	 */
-	public void showMessage(String[] messages, boolean... timer) {
+	public void showMessage(String[] messages) {
 		this.messageDialog = new JDialog(this.frame, "Message");
 		if (this.messageDialog != null) {
-			this.messageDialog.dispose();
+			this.closeMessageDialog();
 		}
 		this.messageDialog.setSize(500, 200);
-		this.messageDialog.setResizable(true);
+		this.messageDialog.setResizable(false);
 		this.messageDialog.setVisible(true);
 		this.messageDialog.setLocationRelativeTo(this.frame);
 		
@@ -36,19 +44,5 @@ public class MessageDialog implements MessageDialogInterface {
 		JLabel messageLabel = new JLabel("<html>"+ message +"</html>", SwingConstants.CENTER);
 		JScrollPane scroll = new JScrollPane(messageLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.messageDialog.add(scroll);
-		if(timer.length == 0) {
-			this.startTimer(3000, messageDialog);
-		}
-	}
-	
-	private void startTimer(int millis, JDialog messageDialog) {
-		Timer timer = new java.util.Timer();
-		timer.schedule(new java.util.TimerTask() {
-			@Override
-			public void run() {
-				messageDialog.dispose();
-				timer.cancel();
-			}
-		}, millis);
 	}
 }
