@@ -21,9 +21,9 @@ public class DrawDots implements DrawDotsInterface {
 	private Graphics graphics;
 	protected JPanel grid;
 	
-	public DrawDots(double[] minXY, double[] maxXY, JPanel grid) {
-		this.maxXY = maxXY;
-		this.minXY = minXY;
+	public DrawDots(JPanel grid) {
+		this.maxXY = new double[] {Double.MIN_VALUE, Double.MIN_VALUE};
+		this.minXY = new double[] {Double.MAX_VALUE, Double.MAX_VALUE};
 		this.grid = grid;
 	}
 	
@@ -45,14 +45,28 @@ public class DrawDots implements DrawDotsInterface {
 			g2d.fill(circle);
 		}
 	}
+	
+	/**
+	 * This method finds the minimum and maximum value of the original X and Y coordinates for symmetric data
+	 * @param dotLocations
+	 */
+	private void findMinMaxActualCoordinate(List<Coordinates> originalCoordinates) {
+		for(Coordinates coordinate:  originalCoordinates) {
+			this.minXY[0] = Math.min(this.minXY[0], coordinate.getX());
+            this.minXY[1] = Math.min(this.minXY[1], coordinate.getY());
+            this.maxXY[0] = Math.max(this.maxXY[0], coordinate.getX());
+            this.maxXY[1] = Math.max(this.maxXY[1], coordinate.getY());
+		}
+	}
 
 	/**
 	 * This method loops through list of coordinates and draw each dot
 	 * 
 	 * @param data - list of coordinates
 	 */
-	public List<Coordinates> loopAndDraw(List<Coordinates> data) {
-		for (Coordinates coordinate : data) {
+	public List<Coordinates> loopAndDraw(List<Coordinates> originalCoordinates) {
+		this.findMinMaxActualCoordinate(originalCoordinates);
+		for (Coordinates coordinate : originalCoordinates) {
 			this.drawDots(coordinate.getIndex(), coordinate.getX(), coordinate.getY());
 		}
 		return this.coordinates;
