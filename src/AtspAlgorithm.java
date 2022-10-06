@@ -39,7 +39,7 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 			this.visitedCities.add("City"+(initialDestination+1));
 		}
 		
-		this.msgDialog.showMessage(new String[]{
+		this.msgDialog.showMessages(new String[]{
 				"Total distance travelled: " + this.totalDistanceTravelled, 
 				"List of cities visited:", 
 				String.valueOf(this.visitedCities)});
@@ -78,10 +78,10 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 		this.totalDistanceTravelled = 0;
 		this.visitedCities.clear();
 		if (copyMatrix.isEmpty()) {
-			this.msgDialog.showMessage(new String[]{"Please load data to run."});
+			this.msgDialog.showMessages(new String[]{"Please load data to run."});
 			return;
 		} else if (this.isRunning) {
-			this.msgDialog.showMessage(new String[]{"The system is already executing the algorithm."});
+			this.msgDialog.showMessages(new String[]{"The system is already executing the algorithm."});
 			return;
 		}
 		List<List<Integer>> asymmetricDistance = new ArrayList<List<Integer>>();

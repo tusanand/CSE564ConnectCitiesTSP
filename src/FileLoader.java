@@ -88,35 +88,29 @@ public class FileLoader implements FileLoaderInterface {
 		}
 		return matrix;
 	}
-
-	/**
-	 * This method opens a file chooser to load a file with symmetric data
-	 * 
-	 */
-	public List<Coordinates> loadSymmetricData() {
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setCurrentDirectory(new File("."));
-		fileChooser.setDialogTitle("Load Symmetric Data");
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(".tsp", "tsp");
-		fileChooser.setFileFilter(filter);
-		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {			
-			return this.loadFromSymmetricFile(fileChooser.getSelectedFile().getAbsolutePath());
-		}
-		return null;
-	}
 	
 	/**
-	 * This method opens a file chooser to load a file with asymmetric data
+	 * This method opens a file chooser to load a file with symmetric/asymmetric data
 	 * 
 	 */
-	public List<Integer> loadASymmetricData() {
+	@SuppressWarnings("unchecked")
+	public <T> List<T> loadData(boolean symmetric) {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setCurrentDirectory(new File("."));
-		fileChooser.setDialogTitle("Load Asymmetric Data");
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(".atsp", "atsp");
+		String extension = "tsp";
+		String dataType = "Symmetric";
+		if(!symmetric) {
+			extension = "atsp";
+			dataType = "Asymmetric";
+		}
+		fileChooser.setDialogTitle("Load " + dataType + " Data");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("." + extension, extension);
 		fileChooser.setFileFilter(filter);
+		if (symmetric && fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {			
+			return (List<T>) this.loadFromSymmetricFile(fileChooser.getSelectedFile().getAbsolutePath());
+		}
 		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {			
-			return this.loadFromAsymmetricFile(fileChooser.getSelectedFile().getAbsolutePath());
+			return (List<T>) this.loadFromAsymmetricFile(fileChooser.getSelectedFile().getAbsolutePath());
 		}
 		return null;
 	}

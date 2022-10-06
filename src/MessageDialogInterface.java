@@ -1,5 +1,5 @@
 public interface MessageDialogInterface {
 	
-	public void showMessage(String[] messages);
+	public void showMessages(String[] messages);
 	
 }
