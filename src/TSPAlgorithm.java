@@ -64,7 +64,7 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 			this.visitedCities.add("City"+initialDestination.getIndex());
 			this.tempCoordinates.removeIf(c -> c.getX() == initialDestination.getX() && c.getY() == initialDestination.getY());
 		}
-		this.msgDialog.showMessage(new String[]{
+		this.msgDialog.showMessages(new String[]{
 				"Total distance travelled: " + this.totalDistanceTravelled, 
 				"List of cities visited:", 
 				String.valueOf(this.visitedCities)});
@@ -78,10 +78,10 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 		this.totalDistanceTravelled = 0;
 		this.visitedCities.clear();
 		if (coordinates.isEmpty()) {
-			this.msgDialog.showMessage(new String[]{"Please load data to run."});
+			this.msgDialog.showMessages(new String[]{"Please load data to run."});
 			return false;
 		} else if (this.isRunning) {
-			this.msgDialog.showMessage(new String[]{"The system is already executing the algorithm."});
+			this.msgDialog.showMessages(new String[]{"The system is already executing the algorithm."});
 			return false;
 		}
 		this.executeAlgorithm(coordinates, hasBeenRun);

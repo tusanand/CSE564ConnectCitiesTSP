@@ -30,7 +30,7 @@ public class MessageDialog implements MessageDialogInterface {
 	 * 
 	 * @param message
 	 */
-	public void showMessage(String[] messages) {
+	public void showMessages(String[] messages) {
 		this.messageDialog = new JDialog(this.frame, "Message");
 		if (this.messageDialog != null) {
 			this.closeMessageDialog();
