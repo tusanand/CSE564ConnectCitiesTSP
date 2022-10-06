@@ -22,8 +22,6 @@ public class ButtonActions implements ActionListener {
 	private List<Coordinates> originalCoordinates;
 	private List<Integer> asymmetricData;
 	private boolean hasBeenRun;
-	private double[] minXY;
-	private double[] maxXY;
 	private MessageDialogInterface msgDialog;
 	private FileLoaderInterface fileLoader;
 	private DrawDotsInterface drawDots;
@@ -36,25 +34,10 @@ public class ButtonActions implements ActionListener {
 		this.asymmetricData = new ArrayList<Integer>();
 		this.hasBeenRun = false;
 		this.symmetric = true;
-		this.maxXY = new double[] {Double.MIN_VALUE, Double.MIN_VALUE};
-		this.minXY = new double[] {Double.MAX_VALUE, Double.MAX_VALUE};
 		this.msgDialog = new MessageDialog(frame);
 		this.tspAlgorithm = new TSPAlgorithm(this.msgDialog, this.drawDots);
 		this.atspAlgorithm = new AtspAlgorithm(this.msgDialog);
 		this.fileLoader = new FileLoader();
-	}
-	
-	/**
-	 * This method finds the minimum and maximum value of the original X and Y coordinates for symmetric data
-	 * @param dotLocations
-	 */
-	private void findMinMaxActualCoordinate(List<Coordinates> dotLocations) {
-		for(Coordinates coordinate:  dotLocations) {
-			this.minXY[0] = Math.min(this.minXY[0], coordinate.getX());
-            this.minXY[1] = Math.min(this.minXY[1], coordinate.getY());
-            this.maxXY[0] = Math.max(this.maxXY[0], coordinate.getX());
-            this.maxXY[1] = Math.max(this.maxXY[1], coordinate.getY());
-		}
 	}
 
 	/**
@@ -81,8 +64,7 @@ public class ButtonActions implements ActionListener {
 			if(this.originalCoordinates != null) {
 				this.hasBeenRun = false;
 				this.symmetric = true;
-				this.drawDots = new DrawDots(this.minXY, this.maxXY, this.grid);
-				this.findMinMaxActualCoordinate(this.originalCoordinates);
+				this.drawDots = new DrawDots(this.grid);
 				this.coordinates = this.drawDots.loopAndDraw(this.originalCoordinates);
 				this.msgDialog.showMessages(new String[]{"The file is successfully loaded."});
 				this.tspAlgorithm = new TSPAlgorithm(this.msgDialog, this.drawDots);
