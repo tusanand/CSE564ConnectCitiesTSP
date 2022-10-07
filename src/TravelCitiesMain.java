@@ -5,7 +5,7 @@ import java.awt.EventQueue;
  * This class launches the application
  *
  */
-public class ConnectingTheDotsMain {
+public class TravelCitiesMain {
 
 	/**
 	 * Launch the application.
