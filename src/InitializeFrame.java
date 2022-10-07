@@ -9,7 +9,7 @@ import javax.swing.JPanel;
  * This class initializes the frame and all of its components
  *
  */
-public class InitializeFrame extends ButtonActions implements InitFrameInterface {
+public class InitializeFrame extends ButtonActions implements InitializeFrameInterface {
 	
 	public InitializeFrame() {
 		this.initialize();
