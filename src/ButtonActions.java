@@ -13,8 +13,8 @@ import javax.swing.JPanel;
  */
 public class ButtonActions implements ActionListener {
 	protected JFrame frame;
-	protected JButton btnLoad;
-	protected JButton btnLoadAssymetric;
+	protected JButton btnLoadSymmetric;
+	protected JButton btnLoadAsymmetric;
 	protected JPanel grid;
 	protected JButton btnClear;
 	protected JButton btnRun;
@@ -58,7 +58,7 @@ public class ButtonActions implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this.btnClear) {
 			this.clearData();
-		} else if (e.getSource() == this.btnLoad) {
+		} else if (e.getSource() == this.btnLoadSymmetric) {
 			this.clearData();
 			this.originalCoordinates = this.fileLoader.loadData(true);
 			if(this.originalCoordinates != null) {
@@ -69,7 +69,7 @@ public class ButtonActions implements ActionListener {
 				this.msgDialog.showMessages(new String[]{"The file is successfully loaded."});
 				this.tspAlgorithm = new TSPAlgorithm(this.msgDialog, this.drawDots);
 			}
-		} else if (e.getSource() == this.btnLoadAssymetric) {
+		} else if (e.getSource() == this.btnLoadAsymmetric) {
 			this.clearData();
 			List<Integer> data = this.fileLoader.loadData(false);
 			if(data != null) {
