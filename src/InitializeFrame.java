@@ -34,19 +34,19 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 		frame.getContentPane().add(btnLoadAsymmetric);
 
 		btnLoadSymmetric = new JButton("Select Symmetric Data");
-		btnLoadSymmetric.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLoadSymmetric.setFont(Config.buttonFont);
 		btnLoadSymmetric.setBounds(775, 10, 200, 32);
 		btnLoadSymmetric.addActionListener(this);
 		frame.getContentPane().add(btnLoadSymmetric);
 
 		btnClear = new JButton("Clear");
-		btnClear.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnClear.setFont(Config.buttonFont);
 		btnClear.setBounds(446, 10, 100, 32);
 		btnClear.addActionListener(this);
 		frame.getContentPane().add(btnClear);
 
 		btnRun = new JButton("Compute Distance");
-		btnRun.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnRun.setFont(Config.buttonFont);
 		btnRun.setBounds(20, 10, 180, 32);
 		btnRun.addActionListener(this);
 		frame.getContentPane().add(btnRun);
