@@ -16,6 +16,10 @@ public class Config {
   public static int btnLoadSymWidth = 220;
 
   public static int padding = 10;
+  public static int offset = 20;
+
+  public static int pointDiameter = 4;
+  public static int highlightDiameter = 4;
 
   public static int messageBoxWidth = 500;
   public static int messageBoxHeight = 200;
