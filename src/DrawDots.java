@@ -34,8 +34,8 @@ public class DrawDots implements DrawDotsInterface {
 	 * @param y
 	 */
 	private void drawDots(int index, double x, double y) {
-		double scaledDownX = Config.offset + (Config.windowWidth - 16 * Config.padding) * ((x - this.minXY[0])/Math.abs(this.maxXY[0]-this.minXY[0]));
-		double scaledDownY = Config.offset + (Config.windowHeight - 16 * Config.padding) * ((y - this.minXY[1])/Math.abs(this.maxXY[1]-this.minXY[1]));
+		double scaledDownX = Config.offset + (Config.windowWidth - 16 * Config.padding) * ((x - this.minXY[0]) / Math.abs(this.maxXY[0] - this.minXY[0]));
+		double scaledDownY = Config.offset + (Config.windowHeight - 16 * Config.padding) * ((y - this.minXY[1]) / Math.abs(this.maxXY[1] - this.minXY[1]));
 		if (!this.coordinates.stream().anyMatch(coordinate -> coordinate.getX() == scaledDownX && coordinate.getY() == scaledDownY)) {
 			this.coordinates.add(new Coordinates(index, scaledDownX, scaledDownY));
 			this.graphics = this.grid.getGraphics();
@@ -50,11 +50,11 @@ public class DrawDots implements DrawDotsInterface {
 	 * @param dotLocations
 	 */
 	private void findMinMaxActualCoordinate(List<Coordinates> originalCoordinates) {
-		for(Coordinates coordinate:  originalCoordinates) {
+		for (Coordinates coordinate : originalCoordinates) {
 			this.minXY[0] = Math.min(this.minXY[0], coordinate.getX());
-            this.minXY[1] = Math.min(this.minXY[1], coordinate.getY());
-            this.maxXY[0] = Math.max(this.maxXY[0], coordinate.getX());
-            this.maxXY[1] = Math.max(this.maxXY[1], coordinate.getY());
+      this.minXY[1] = Math.min(this.minXY[1], coordinate.getY());
+      this.maxXY[0] = Math.max(this.maxXY[0], coordinate.getX());
+      this.maxXY[1] = Math.max(this.maxXY[1], coordinate.getY());
 		}
 	}
 
@@ -78,7 +78,12 @@ public class DrawDots implements DrawDotsInterface {
 	 */
 	public void markDotsVisited(Coordinates coordinate) {
 		Graphics2D g2d = (Graphics2D)this.graphics;
-		Shape circle = new Arc2D.Double(coordinate.getX() - Config.highlightDiameter / 2, coordinate.getY() - Config.highlightDiameter / 2, 2 * Config.highlightDiameter, 2 * Config.highlightDiameter, 0, 360, Arc2D.CHORD);
+		Shape circle = new Arc2D.Double(
+			coordinate.getX() - Config.highlightDiameter / 2,
+			coordinate.getY() - Config.highlightDiameter / 2,
+			2 * Config.highlightDiameter,
+			2 * Config.highlightDiameter, 0, 360, Arc2D.CHORD
+		);
 		g2d.setColor(Color.RED);
 		g2d.draw(circle);
 	}

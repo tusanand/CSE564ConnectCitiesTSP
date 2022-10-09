@@ -61,7 +61,7 @@ public class ButtonActions implements ActionListener {
 		} else if (e.getSource() == this.btnLoadSymmetric) {
 			this.clearData();
 			this.originalCoordinates = this.fileLoader.loadData(true);
-			if(this.originalCoordinates != null) {
+			if (this.originalCoordinates != null) {
 				this.hasBeenRun = false;
 				this.symmetric = true;
 				this.drawDots = new DrawDots(this.grid);
@@ -72,13 +72,13 @@ public class ButtonActions implements ActionListener {
 		} else if (e.getSource() == this.btnLoadAsymmetric) {
 			this.clearData();
 			List<Integer> data = this.fileLoader.loadData(false);
-			if(data != null) {
+			if (data != null) {
 				this.asymmetricData = data;
 				this.symmetric = false;
 				this.msgDialog.showMessages(new String[] {"The file is successfully loaded."});
 			}
 		} else if (e.getSource() == this.btnRun) {
-			if(this.symmetric) {
+			if (this.symmetric) {
 				boolean success = this.tspAlgorithm.startAlgorithm(this.coordinates, this.hasBeenRun);
 				this.hasBeenRun = success;
 			} else {

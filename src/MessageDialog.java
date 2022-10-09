@@ -41,7 +41,7 @@ public class MessageDialog implements MessageDialogInterface {
 		this.messageDialog.setLocationRelativeTo(this.frame);
 		
 		String message = "";
-		for(String msg: messages) {
+		for (String msg : messages) {
 			message = message + msg + "<br/>";
 		}
 		JLabel messageLabel = new JLabel("<html>"+ message +"</html>", SwingConstants.CENTER);
