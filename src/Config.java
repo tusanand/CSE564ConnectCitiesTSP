@@ -1,6 +1,6 @@
 import java.awt.Font;
 
-public class Config {
+public abstract class Config {
   public static int windowStartX = 100;
   public static int windowStartY = 100;
   public static int windowWidth = 1000;
