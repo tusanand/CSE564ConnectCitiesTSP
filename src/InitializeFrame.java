@@ -22,7 +22,7 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 	public void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Connect the Dots");
-		frame.setBounds(100, 100, 1000, 700);
+		frame.setBounds(Config.windowStartX, Config.windowStartY, Config.windowWidth, Config.windowHeight);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
