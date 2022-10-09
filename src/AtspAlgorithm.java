@@ -24,7 +24,7 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	private void executeAlgorithm(List<List<Integer>> asymmetricDistance) {
 		this.isRunning = true;
 		this.tempData = new ArrayList<Integer>();
-		for(int i = 0; i < this.dimension; i++) {
+		for(int i = 0; i < this.dimension; ++i) {
 			this.tempData.add(i);
 		}
 		int initialDestination = this.randomSelectIndex(this.tempData);
@@ -52,7 +52,7 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	 * @param key
 	 */
 	private List<Integer> removeData(List<Integer> data, int key) {
-		for (int i = 0; i < data.size(); i++) {
+		for (int i = 0; i < data.size(); ++i) {
 			if(data.get(i) == key) {
 				data.remove(i);
 			}
