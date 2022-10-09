@@ -35,13 +35,13 @@ public class MessageDialog implements MessageDialogInterface {
 		if (this.messageDialog != null) {
 			this.closeMessageDialog();
 		}
-		this.messageDialog.setSize(500, 200);
+		this.messageDialog.setSize(Config.messageBoxWidth, Config.messageBoxHeight);
 		this.messageDialog.setResizable(false);
 		this.messageDialog.setVisible(true);
 		this.messageDialog.setLocationRelativeTo(this.frame);
 		
 		String message = "";
-		for(String msg: messages) {
+		for (String msg : messages) {
 			message = message + msg + "<br/>";
 		}
 		JLabel messageLabel = new JLabel("<html>"+ message +"</html>", SwingConstants.CENTER);

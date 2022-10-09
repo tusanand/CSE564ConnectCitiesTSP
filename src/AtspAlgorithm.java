@@ -24,27 +24,28 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	private void executeAlgorithm(List<List<Integer>> asymmetricDistance) {
 		this.isRunning = true;
 		this.tempData = new ArrayList<Integer>();
-		for(int i = 0; i < this.dimension; i++) {
+		for (int i = 0; i < this.dimension; ++i) {
 			this.tempData.add(i);
 		}
 		int initialDestination = this.randomSelectIndex(this.tempData);
 		this.tempData = this.removeData(this.tempData, initialDestination);
-		this.visitedCities.add("City"+(initialDestination+1));
+		this.visitedCities.add("City" + (initialDestination + 1));
 		
-		while(this.tempData.size() > 0) {
+		while (this.tempData.size() > 0) {
 			int finalDestination = this.randomSelectIndex(this.tempData);
 			this.totalDistanceTravelled += asymmetricDistance.get(initialDestination).get(finalDestination);
 			initialDestination = finalDestination;
 			this.tempData = this.removeData(this.tempData, initialDestination);
-			this.visitedCities.add("City"+(initialDestination+1));
+			this.visitedCities.add("City" + (initialDestination + 1));
 		}
 		
-		this.msgDialog.showMessages(new String[]{
-				"Total distance travelled: " + this.totalDistanceTravelled, 
-				"List of cities visited:", 
-				String.valueOf(this.visitedCities)});
+		this.msgDialog.showMessages(new String[] {
+			"Total distance travelled: " + this.totalDistanceTravelled, 
+			"List of cities visited:", 
+			String.valueOf(this.visitedCities) }
+		);
 	}
-	
+
 	/**
 	 * This method removes elements from a list
 	 * 
@@ -52,8 +53,8 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	 * @param key
 	 */
 	private List<Integer> removeData(List<Integer> data, int key) {
-		for (int i = 0; i < data.size(); i++) {
-			if(data.get(i) == key) {
+		for (int i = 0; i < data.size(); ++i) {
+			if (data.get(i) == key) {
 				data.remove(i);
 			}
 		}
@@ -87,12 +88,11 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 		List<List<Integer>> asymmetricDistance = new ArrayList<List<Integer>>();
 		this.dimension = copyMatrix.remove(copyMatrix.size()-1);
 		int index = 0;
-		while(index < copyMatrix.size()) {
+		while (index < copyMatrix.size()) {
 			asymmetricDistance.add(copyMatrix.subList(index, index + this.dimension));
 			index = index + this.dimension;
 		}
 		this.executeAlgorithm(asymmetricDistance);
 		this.isRunning = false;
 	}
-
 }

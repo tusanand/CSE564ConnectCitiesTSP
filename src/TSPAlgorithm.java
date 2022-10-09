@@ -36,7 +36,7 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 	 */
 	private double calculateManhattanDistance(Coordinates selectedPoint, Coordinates traversedPoint) {
 		return Math.sqrt(Math.pow(selectedPoint.getX() - traversedPoint.getX(), 2)
-				+ Math.pow(selectedPoint.getY() - traversedPoint.getY(), 2));
+			+ Math.pow(selectedPoint.getY() - traversedPoint.getY(), 2));
 	}
 	
 	/**
@@ -47,14 +47,14 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 		this.tempCoordinates = new ArrayList<Coordinates>(coordinates);
 		final Coordinates initialDestination = this.randomSelectDot(this.tempCoordinates);
 		this.visitedCities.add("City"+initialDestination.getIndex());
-		if(!hasBeenRun) {
+		if (!hasBeenRun) {
 			this.drawDots.markDotsVisited(initialDestination);
 		}
 		this.tempCoordinates.removeIf(c -> c.getX() == initialDestination.getX() && c.getY() == initialDestination.getY());
 
 		while (this.tempCoordinates.size() > 0) {
 			Coordinates finalDestination = this.randomSelectDot(this.tempCoordinates);
-			if(!hasBeenRun) {
+			if (!hasBeenRun) {
 				this.drawDots.markDotsVisited(finalDestination);
 			}
 			this.totalDistanceTravelled += this.calculateManhattanDistance(initialDestination, finalDestination);
@@ -65,11 +65,11 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 			this.tempCoordinates.removeIf(c -> c.getX() == initialDestination.getX() && c.getY() == initialDestination.getY());
 		}
 		this.msgDialog.showMessages(new String[]{
-				"Total distance travelled: " + this.totalDistanceTravelled, 
-				"List of cities visited:", 
-				String.valueOf(this.visitedCities)});
+			"Total distance travelled: " + this.totalDistanceTravelled, 
+			"List of cities visited:", 
+			String.valueOf(this.visitedCities) }
+		);
 	}
-	
 	
 	/**
 	 * This method starts the algorithm

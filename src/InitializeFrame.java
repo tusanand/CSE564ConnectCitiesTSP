@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,38 +21,43 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 	public void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Connect the Dots");
-		frame.setBounds(100, 100, 1000, 700);
+		frame.setBounds(Config.windowStartX, Config.windowStartY, Config.windowWidth, Config.windowHeight);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		btnRun = new JButton("Compute Distance");
+		btnRun.setFont(Config.buttonFont);
+		btnRun.setBounds(Config.padding, Config.padding, Config.btnRunWidth, Config.buttonHeight);
+		btnRun.addActionListener(this);
+		frame.getContentPane().add(btnRun);
+
+		btnClear = new JButton("Clear");
+		btnClear.setFont(Config.buttonFont);
+		btnClear.setBounds(2 * Config.padding + Config.btnRunWidth, Config.padding, Config.btnClearWidth, Config.buttonHeight);
+		btnClear.addActionListener(this);
+		frame.getContentPane().add(btnClear);
+
 		btnLoadAsymmetric = new JButton("Select Asymmetric Data");
-		btnLoadAsymmetric.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLoadAsymmetric.setBounds(555, 10, 210, 32);
+		btnLoadAsymmetric.setFont(Config.buttonFont);
+		btnLoadAsymmetric.setBounds(6 * Config.padding + Config.btnRunWidth + Config.btnClearWidth, Config.padding, Config.btnLoadAsymWidth, Config.buttonHeight);
 		btnLoadAsymmetric.addActionListener(this);
 		frame.getContentPane().add(btnLoadAsymmetric);
 
 		btnLoadSymmetric = new JButton("Select Symmetric Data");
-		btnLoadSymmetric.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLoadSymmetric.setBounds(775, 10, 200, 32);
+		btnLoadSymmetric.setFont(Config.buttonFont);
+		btnLoadSymmetric.setBounds(7 * Config.padding + Config.btnRunWidth + Config.btnClearWidth + Config.btnLoadAsymWidth, Config.padding, Config.btnLoadSymWidth, Config.buttonHeight);
 		btnLoadSymmetric.addActionListener(this);
 		frame.getContentPane().add(btnLoadSymmetric);
 
-		btnClear = new JButton("Clear");
-		btnClear.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnClear.setBounds(446, 10, 100, 32);
-		btnClear.addActionListener(this);
-		frame.getContentPane().add(btnClear);
-
-		btnRun = new JButton("Compute Distance");
-		btnRun.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnRun.setBounds(20, 10, 180, 32);
-		btnRun.addActionListener(this);
-		frame.getContentPane().add(btnRun);
-
 		grid = new JPanel();
 		grid.setBackground(Color.WHITE);
-		grid.setBounds(10, 52, 968, 598);
+		grid.setBounds(
+			Config.padding,
+			2 * Config.padding + Config.buttonHeight,
+			Config.windowWidth - 10 * Config.padding,
+			Config.windowHeight - 10 * Config.padding
+		);
 		frame.getContentPane().add(grid);
 	}
 
