@@ -57,12 +57,4 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 		frame.getContentPane().add(grid);
 	}
 
-	private JButton createButton(String text, int[] bounds) {
-		JButton btn = new JButton(text);
-		btn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn.setBounds(bounds[0], bounds[1], bounds[2], bounds[3]);
-		btn.addActionListener(this);
-
-		return btn;
-	}
 }
