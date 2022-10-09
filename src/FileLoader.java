@@ -24,23 +24,23 @@ public class FileLoader implements FileLoaderInterface {
 		List<Coordinates> dotLocations = new ArrayList<Coordinates>();
 		try {
 			File file = new File(filePath);
-	    Scanner sc = new Scanner(file);
-	    String nextValue = null;
-	    while (sc.hasNextLine()) {
-	      String line = sc.nextLine();
-	      if ("NODE_COORD_SECTION".equals(line.trim())) {
-	        while (sc.hasNextLine()) {
-	          nextValue = sc.nextLine();
-	          if(nextValue.trim().equals("EOF")) {
-	          	break;
-	          }
-	          String[] s = nextValue.trim().split(" ");
-	          Coordinates coordinate = new Coordinates(Integer.parseInt(s[0]), Double.parseDouble(s[1]), Double.parseDouble(s[2]));
-	          dotLocations.add(coordinate);
-	        }
-	      }
-	    }
-	    sc.close();
+			Scanner sc = new Scanner(file);
+			String nextValue = null;
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				if ("NODE_COORD_SECTION".equals(line.trim())) {
+					while (sc.hasNextLine()) {
+						nextValue = sc.nextLine();
+						if(nextValue.trim().equals("EOF")) {
+							break;
+						}
+						String[] s = nextValue.trim().split(" ");
+						Coordinates coordinate = new Coordinates(Integer.parseInt(s[0]), Double.parseDouble(s[1]), Double.parseDouble(s[2]));
+						dotLocations.add(coordinate);
+					}
+				}
+			}
+			sc.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,32 +56,32 @@ public class FileLoader implements FileLoaderInterface {
 		List<Integer> matrix = new ArrayList<Integer>();
 		try {
 			File file = new File(filePath);
-	    Scanner sc = new Scanner(file);
-	    String nextValue = null;
-	    int dimension = 0;
-	    while (sc.hasNextLine()) {
-	    	String line = sc.nextLine();
-	    	if(line.split(":")[0].trim().equals("DIMENSION")) {
-	    		dimension = Integer.parseInt(line.split(":")[1].trim());
-	    	}
-	    	if("EDGE_WEIGHT_SECTION".equals(line.trim())) {
-	    	  while (sc.hasNextLine()) {
-	    	    nextValue = sc.nextLine();
-	    	    if (nextValue.trim().equals("EOF")) {
-	    	    	break;
-	    	    }
-	    	    String[] atspData = nextValue.trim().split(" ");
-	    	    for (String data : atspData) {
-	    	    	if (data.equals("")) {
-	    	    		continue;
-	    	    	}
-	    	    	matrix.add(Integer.parseInt(data));
-	    	    }
-	    	  }
-	    	  matrix.add(dimension);
-	    	}
-	    }
-	    sc.close();
+			Scanner sc = new Scanner(file);
+			String nextValue = null;
+			int dimension = 0;
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
+				if(line.split(":")[0].trim().equals("DIMENSION")) {
+					dimension = Integer.parseInt(line.split(":")[1].trim());
+				}
+				if("EDGE_WEIGHT_SECTION".equals(line.trim())) {
+					while (sc.hasNextLine()) {
+						nextValue = sc.nextLine();
+						if (nextValue.trim().equals("EOF")) {
+							break;
+						}
+						String[] atspData = nextValue.trim().split(" ");
+						for (String data : atspData) {
+							if (data.equals("")) {
+								continue;
+							}
+							matrix.add(Integer.parseInt(data));
+						}
+					}
+					matrix.add(dimension);
+				}
+			}
+			sc.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
