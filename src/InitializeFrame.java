@@ -28,7 +28,7 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 		frame.getContentPane().setLayout(null);
 		
 		btnLoadAsymmetric = new JButton("Select Asymmetric Data");
-		btnLoadAsymmetric.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLoadAsymmetric.setFont(Config.buttonFont);
 		btnLoadAsymmetric.setBounds(555, 10, 210, 32);
 		btnLoadAsymmetric.addActionListener(this);
 		frame.getContentPane().add(btnLoadAsymmetric);
