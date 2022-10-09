@@ -36,7 +36,7 @@ public class TSPAlgorithm implements TSPAlgorithmInterface {
 	 */
 	private double calculateManhattanDistance(Coordinates selectedPoint, Coordinates traversedPoint) {
 		return Math.sqrt(Math.pow(selectedPoint.getX() - traversedPoint.getX(), 2)
-				+ Math.pow(selectedPoint.getY() - traversedPoint.getY(), 2));
+			+ Math.pow(selectedPoint.getY() - traversedPoint.getY(), 2));
 	}
 	
 	/**
