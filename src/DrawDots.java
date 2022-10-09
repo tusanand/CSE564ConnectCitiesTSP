@@ -52,9 +52,9 @@ public class DrawDots implements DrawDotsInterface {
 	private void findMinMaxActualCoordinate(List<Coordinates> originalCoordinates) {
 		for (Coordinates coordinate : originalCoordinates) {
 			this.minXY[0] = Math.min(this.minXY[0], coordinate.getX());
-      this.minXY[1] = Math.min(this.minXY[1], coordinate.getY());
-      this.maxXY[0] = Math.max(this.maxXY[0], coordinate.getX());
-      this.maxXY[1] = Math.max(this.maxXY[1], coordinate.getY());
+			this.minXY[1] = Math.min(this.minXY[1], coordinate.getY());
+			this.maxXY[0] = Math.max(this.maxXY[0], coordinate.getX());
+			this.maxXY[1] = Math.max(this.maxXY[1], coordinate.getY());
 		}
 	}
 
