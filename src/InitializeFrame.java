@@ -27,17 +27,17 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		btnLoadAssymetric = new JButton("Select Asymmetric Data");
-		btnLoadAssymetric.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLoadAssymetric.setBounds(555, 10, 210, 32);
-		btnLoadAssymetric.addActionListener(this);
-		frame.getContentPane().add(btnLoadAssymetric);
+		btnLoadAsymmetric = new JButton("Select Asymmetric Data");
+		btnLoadAsymmetric.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLoadAsymmetric.setBounds(555, 10, 210, 32);
+		btnLoadAsymmetric.addActionListener(this);
+		frame.getContentPane().add(btnLoadAsymmetric);
 
-		btnLoad = new JButton("Select Symmetric Data");
-		btnLoad.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnLoad.setBounds(775, 10, 200, 32);
-		btnLoad.addActionListener(this);
-		frame.getContentPane().add(btnLoad);
+		btnLoadSymmetric = new JButton("Select Symmetric Data");
+		btnLoadSymmetric.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLoadSymmetric.setBounds(775, 10, 200, 32);
+		btnLoadSymmetric.addActionListener(this);
+		frame.getContentPane().add(btnLoadSymmetric);
 
 		btnClear = new JButton("Clear");
 		btnClear.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -55,5 +55,14 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 		grid.setBackground(Color.WHITE);
 		grid.setBounds(10, 52, 968, 598);
 		frame.getContentPane().add(grid);
+	}
+
+	private JButton createButton(String text, int[] bounds) {
+		JButton btn = new JButton(text);
+		btn.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btn.setBounds(bounds[0], bounds[1], bounds[2], bounds[3]);
+		btn.addActionListener(this);
+
+		return btn;
 	}
 }
