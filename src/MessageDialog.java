@@ -35,7 +35,7 @@ public class MessageDialog implements MessageDialogInterface {
 		if (this.messageDialog != null) {
 			this.closeMessageDialog();
 		}
-		this.messageDialog.setSize(500, 200);
+		this.messageDialog.setSize(Config.messageBoxWidth, Config.messageBoxHeight);
 		this.messageDialog.setResizable(false);
 		this.messageDialog.setVisible(true);
 		this.messageDialog.setLocationRelativeTo(this.frame);
