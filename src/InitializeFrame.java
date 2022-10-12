@@ -40,13 +40,13 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 
 		btnLoadAsymmetric = new JButton("Select Asymmetric Data");
 		btnLoadAsymmetric.setFont(Config.BUTTON_FONT);
-		btnLoadAsymmetric.setBounds(6 * Config.PADDING + Config.BTN_RUN_WIDTH + Config.BTN_CLEAR_WIDTH, Config.PADDING, Config.BTN_LOAD_ASYM_WIDTH, Config.BUTTON_HEIGHT);
+		btnLoadAsymmetric.setBounds(24 * Config.PADDING + Config.BTN_RUN_WIDTH + Config.BTN_CLEAR_WIDTH, Config.PADDING, Config.BTN_LOAD_ASYM_WIDTH, Config.BUTTON_HEIGHT);
 		btnLoadAsymmetric.addActionListener(this);
 		frame.getContentPane().add(btnLoadAsymmetric);
 
 		btnLoadSymmetric = new JButton("Select Symmetric Data");
 		btnLoadSymmetric.setFont(Config.BUTTON_FONT);
-		btnLoadSymmetric.setBounds(7 * Config.PADDING + Config.BTN_RUN_WIDTH + Config.BTN_CLEAR_WIDTH + Config.BTN_LOAD_ASYM_WIDTH, Config.PADDING, Config.BTN_LOAD_SYM_WIDTH, Config.BUTTON_HEIGHT);
+		btnLoadSymmetric.setBounds(25 * Config.PADDING + Config.BTN_RUN_WIDTH + Config.BTN_CLEAR_WIDTH + Config.BTN_LOAD_ASYM_WIDTH, Config.PADDING, Config.BTN_LOAD_SYM_WIDTH, Config.BUTTON_HEIGHT);
 		btnLoadSymmetric.addActionListener(this);
 		frame.getContentPane().add(btnLoadSymmetric);
 
@@ -55,7 +55,7 @@ public class InitializeFrame extends ButtonActions implements InitializeFrameInt
 		grid.setBounds(
 			Config.PADDING,
 			2 * Config.PADDING + Config.BUTTON_HEIGHT,
-			Config.WINDOW_WIDTH - 10 * Config.PADDING,
+			Config.WINDOW_WIDTH - Config.PADDING - 25,
 			Config.WINDOW_HEIGHT - 10 * Config.PADDING
 		);
 		frame.getContentPane().add(grid);
