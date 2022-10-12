@@ -19,7 +19,7 @@ public class FileLoader implements FileLoaderInterface {
 	 * 
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> List<T> browseAndLoadData(TspType type) {
+	public <T> List<T> browseAndLoadData(TspTypeInterface type) {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setCurrentDirectory(new File("."));
 		String extension = type.getExtension();

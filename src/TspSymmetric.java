@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TspSymmetric implements TspType {
+public class TspSymmetric implements TspTypeInterface {
   String extension = "tsp";
   String dataType = "Symmetric";
 
