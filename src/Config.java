@@ -1,26 +1,30 @@
 import java.awt.Font;
 
-public abstract class Config {
-  public static int windowStartX = 100;
-  public static int windowStartY = 100;
-  public static int windowWidth = 1000;
-  public static int windowHeight = 700;
+public final class Config {
+	
+	private Config() {
+		
+	}
+	public static final int windowStartX = 100;
+	public static final int windowStartY = 100;
+	public static final int windowWidth = 1000;
+	public static final int windowHeight = 700;
 
-  public static Font buttonFont = new Font("Tahoma", Font.BOLD, 14);
+	public static final Font buttonFont = new Font("Tahoma", Font.BOLD, 14);
 
-  public static int buttonHeight = 40;
+	public static final int buttonHeight = 40;
 
-  public static int btnRunWidth = 180;
-  public static int btnClearWidth = 100;
-  public static int btnLoadAsymWidth = 220;
-  public static int btnLoadSymWidth = 220;
+	public static final int btnRunWidth = 180;
+	public static final int btnClearWidth = 100;
+	public static final int btnLoadAsymWidth = 220;
+	public static final int btnLoadSymWidth = 220;
 
-  public static int padding = 10;
-  public static int offset = 20;
+	public static final int padding = 10;
+	public static final int offset = 20;
 
-  public static int pointDiameter = 4;
-  public static int highlightDiameter = 4;
+	public static final int pointDiameter = 4;
+	public static final int highlightDiameter = 4;
 
-  public static int messageBoxWidth = 500;
-  public static int messageBoxHeight = 200;
+	public static final int messageBoxWidth = 500;
+	public static final int messageBoxHeight = 200;
 }
