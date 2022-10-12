@@ -12,7 +12,7 @@ public class AtspAlgorithm implements AtspAlgorithmInterface {
 	private int dimension;
 	private double totalDistanceTravelled;
 	private List<String> visitedCities = new ArrayList<>();
-	List<Integer> tempData;
+	private List<Integer> tempData;
 	
 	public AtspAlgorithm(MessageDialogInterface msgDialog) {
 		this.msgDialog = msgDialog;
