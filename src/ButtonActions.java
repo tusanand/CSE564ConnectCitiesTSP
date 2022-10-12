@@ -60,7 +60,7 @@ public class ButtonActions implements ActionListener {
 			this.clearData();
 		} else if (e.getSource() == this.btnLoadSymmetric) {
 			this.clearData();
-			this.originalCoordinates = this.fileLoader.loadData(true);
+			this.originalCoordinates = this.fileLoader.browseAndLoadData(new TspSymmetric());
 			if (this.originalCoordinates != null) {
 				this.hasBeenRun = false;
 				this.symmetric = true;
@@ -71,7 +71,7 @@ public class ButtonActions implements ActionListener {
 			}
 		} else if (e.getSource() == this.btnLoadAsymmetric) {
 			this.clearData();
-			List<Integer> data = this.fileLoader.loadData(false);
+			List<Integer> data = this.fileLoader.browseAndLoadData(new TspAsymmetric());
 			if (data != null) {
 				this.asymmetricData = data;
 				this.symmetric = false;
