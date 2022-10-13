@@ -32,7 +32,7 @@ public class TspAsymmetric implements TspTypeInterface {
 				if(line.split(":")[0].trim().equals("DIMENSION")) {
 					dimension = Integer.parseInt(line.split(":")[1].trim());
 				}
-				if("EDGE_WEIGHT_SECTION".equals(line.trim())) {
+				if ("EDGE_WEIGHT_SECTION".equals(line.trim())) {
 					while (sc.hasNextLine()) {
 						nextValue = sc.nextLine();
 						if (nextValue.trim().equals("EOF")) {
