@@ -31,7 +31,7 @@ public class TspSymmetric implements TspTypeInterface {
 				if ("NODE_COORD_SECTION".equals(line.trim())) {
 					while (sc.hasNextLine()) {
 						nextValue = sc.nextLine();
-						if(nextValue.trim().equals("EOF")) {
+						if (nextValue.trim().equals("EOF")) {
 							break;
 						}
 						String[] s = nextValue.trim().split(" ");
